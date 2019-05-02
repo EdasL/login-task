@@ -12,8 +12,8 @@
       
       <div class="collapse navbar-collapse navbar-right" [ngClass]="{ 'in': isIn }">
           <ul class="nav navbar-nav">
-              <li><a (click)="onSelect('login')">Login</a></li>
-              <li><a (click)="onSelect('register')">Register</a></li>
+              <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
+              <li routerLinkActive="active"><a routerLink="/register">Register</a></li>
           </ul>
       </div>
   

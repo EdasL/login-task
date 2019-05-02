@@ -3,8 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-login *ngIf="loadedFeature === 'login'"></app-login>
-      <app-register *ngIf="loadedFeature !== 'login'"></app-register>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
