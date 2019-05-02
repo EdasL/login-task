@@ -5,34 +5,42 @@
                 <i class="glyphicon glyphicon-send" style="font-size:30px;"></i>
           </div>
       
-          <form id="register-form" 
-            class="form text"
-            (ngSubmit)="onRegisterUser(f)"
-            #f="ngForm">
+          <form [formGroup]="registerForm"
+          class="form text"
+          (ngSubmit)="onRegisterUser()">
 
-            <input type="text" 
-            id="username" 
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.username.errors }">
+            <input type="text"
             class="fadeIn second" 
-            name="username" 
             placeholder="username"
-            required
-            ngModel>
+            formControlName="username">
+            </p>
+    
+            <div *ngIf="isSubmitted && formControls.username.errors" class="help-block">
+              <div *ngIf="formControls.username.errors.required">Username is required</div>
+            </div>
 
-            <input type="password" 
-            id="password" 
-            class="fadeIn third" 
-            name="password" 
-            placeholder="password"
-            required
-            ngModel>
+            <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+              <input type="password" 
+              class="fadeIn third" 
+              placeholder="password"
+              formControlName="password">
+            </p>
 
-            <input type="password" 
-            id="repassword" 
-            class="fadeIn third" 
-            name="repassword" 
-            placeholder="confirm password"
-            required
-            ngModel>
+            <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+              <div *ngIf="formControls.password.errors.required">Password is required</div>
+            </div>    
+            
+            <p [ngClass]="{ 'has-error': isSubmitted && formControls.repassword.errors }">
+              <input type="password" 
+              class="fadeIn fourth" 
+              placeholder="confirm password"
+              formControlName="repassword">
+            </p>
+    
+            <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+              <div *ngIf="formControls.password.errors.required">Password is required</div>
+            </div>    
 
             <input type="submit" class="fadeIn fifth" value="Sign up">
             <button type="button" class="btn btn-link" (click)="onClickCancel()">Cancel</button>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/shared/modules/user.model';
-import { Http, Response } from '@angular/http';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-table',
