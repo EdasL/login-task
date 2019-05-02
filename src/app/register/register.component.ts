@@ -38,7 +38,7 @@ export class RegisterComponent{
 
     this.isSubmitted = true;
 
-    if (!this.registerForm.value.invalid) {
+    if (this.registerForm.value.invalid) {
       return;
     }
     else{

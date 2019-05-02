@@ -32,21 +32,15 @@ export class LoginComponent implements OnInit{
     this.router.navigate(['register']);
   }
 
-  logout(){
-    this.authService.logout();
-    this.router.navigateByUrl('/login');
-  }
-
   onLoginUser(){
     console.log(this.loginForm.value);
     this.isSubmitted = true;
 
-    if (!this.loginForm.value.invalid) {
+    if (this.loginForm.value.invalid) {
       return;
     }
     else{
       this.authService.login(this.loginForm.value);
-
       return this.http.post('http://localhost:8000/api/login', this.loginForm.value)
       .subscribe(
         (response: Response) => {
